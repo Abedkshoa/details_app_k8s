@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: details-app-deployment
+  labels:
+    app: details-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: details-app
+  template:
+    metadata:
+      labels:
+        app: details-app
+    spec:
+      containers:
+        - name: details-app
+          image: details-app:latest  # Use Docker Hub image or your own if needed
+          ports:
+            - containerPort: 5000
